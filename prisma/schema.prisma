@@ -17,7 +17,17 @@ model task {
   task_tag         task_task_tag
   task_created_at  DateTime
   task_update_at   DateTime?
-  task_is_done     Boolean
+  task_is_done     Boolean?           @default(false)
+}
+
+model task_log {
+  task_log_id          Int       @id @default(autoincrement())
+  task_id              Int
+  task_log_action      String    @db.VarChar(20)
+  task_log_field_name  String    @db.VarChar(255)
+  task_log_old_value   Json?
+  task_log_new_value   Json?
+  task_log_change_date DateTime? @default(now()) @db.DateTime(3)
 }
 
 enum task_task_categori {

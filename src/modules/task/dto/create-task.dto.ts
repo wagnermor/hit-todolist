@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsBoolean, IsEnum, IsNotEmpty, IsString, MaxLength } from "class-validator";
+import { IsEnum, IsNotEmpty, IsString, MaxLength } from "class-validator";
 
 export enum task_task_categori {
   WORK = 'WORK',
@@ -80,16 +80,16 @@ export class CreateTaskDto {
   @IsEnum(task_task_tag)
   taskTag: task_task_tag;
 
-  @ApiProperty({
-    name: 'taskIsDone',
-    description: 'Task is done',
-    example: 'true',
-    type: Boolean,
-    required: true
-  })
-  @IsNotEmpty({ message: 'Task is done is required' })
-  @IsBoolean()
-  taskIsDone: boolean;
+  // @ApiProperty({
+  //   name: 'taskIsDone',
+  //   description: 'Task is done',
+  //   example: 'true',
+  //   type: Boolean,
+  //   required: true
+  // })
+  // @IsNotEmpty({ message: 'Task is done is required' })
+  // @IsBoolean()
+  // taskIsDone: boolean;
 }
 
 
