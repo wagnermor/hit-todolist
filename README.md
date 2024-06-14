@@ -25,6 +25,9 @@
   <img src="./assets/print-swagger.png" alt="Swagger Api">
 </p>
 
+[![My Skills](https://skillicons.dev/icons?i=ts,nestjs,prisma,mysql,docker)](https://skillicons.dev)
+
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
