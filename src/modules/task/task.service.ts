@@ -27,7 +27,7 @@ export class TaskService {
     }
   }
 
-  async updateTask(id: number, data: UpdateTaskDto): Promise<task> {
+  async updateById(id: number, data: UpdateTaskDto): Promise<task> {
     try {
       const { ...dto } = data
       return this.prisma.task.update({
@@ -55,6 +55,10 @@ export class TaskService {
     } catch (error) {
       throw new BadRequestException(error);
     }
+  }
+
+  async getAllTask(): Promise<task[]> {
+    return this.prisma.task.findMany();
   }
 
 }
