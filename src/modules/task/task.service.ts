@@ -47,5 +47,15 @@ export class TaskService {
     }
   }
 
+  async deleteTask(id: number): Promise<task> {
+    try {
+      return this.prisma.task.delete({
+        where: { task_id: id }
+      });
+    } catch (error) {
+      throw new BadRequestException(error);
+    }
+  }
+
 }
 
