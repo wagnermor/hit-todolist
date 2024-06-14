@@ -61,5 +61,25 @@ export class TaskService {
     return this.prisma.task.findMany();
   }
 
+  async taskIsDone(id: number): Promise<task> {
+    try {
+      const task = await this.prisma.task.findUnique({
+        where: { task_id: id }
+      });
+      if (task.task_is_done) {
+        throw new BadRequestException('Task is already done');
+      }
+      return this.prisma.task.update({
+        where: { task_id: id },
+        data: {
+          task_is_done: true,
+          task_update_at: new Date()
+        }
+      });
+    } catch (error) {
+      throw new BadRequestException(`WARNING: ${error}`);
+    }
+  }
+
 }
 
